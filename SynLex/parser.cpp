@@ -1,5 +1,7 @@
 #include "parser.h"
 #include <algorithm>
+#include <functional>
+#include  <math.h>
 
 #define SYMBOLS
 #define SIGNS "+-*/"
@@ -15,6 +17,38 @@ STRING symbols = "+-*/";
 STRING digits = "0123456789.";
 CHAR space = ' ';
 #endif
+
+class Math_uni_function
+{
+public:
+	std::function<double(double)> func;
+	STRING name;
+	
+};
+
+class Math_uni_cos : public Math_uni_function
+{
+public:
+	Math_uni_cos()
+	{
+		func = [](double value)
+		{
+			return cos(value);
+		};
+	}
+};
+
+class Math_uni_sin : public Math_uni_function
+{
+public:
+	Math_uni_sin()
+	{
+		func = [](double value)
+		{
+			return sin(value);
+		};
+	}
+};
 
 bool is_letter(CHAR &c)
 {

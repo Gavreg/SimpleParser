@@ -1,7 +1,7 @@
 #ifndef PARSER_H
 #define PARSER_H
 
-#define WSTRING
+//#define WSTRING
 
 #ifdef WSTRING
 #define STRING std::wstring
